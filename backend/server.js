@@ -41,7 +41,7 @@ app.post("/api/shorten", async (req, res) => {
     const newUrl = new Url({ original_url, short_code });
     await newUrl.save();
 
-    res.json({ short_url: `http://localhost:5000/${short_code}` });
+    res.json({ short_url: `https://url-shortner-backend-ppht.onrender.com/${short_code}` });
   } catch (err) {
     if (err.code === 11000) {
       return res.status(409).json({ error: "Short code already exists" });
@@ -64,6 +64,7 @@ app.get("/:short_code", async (req, res) => {
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 
 
 
