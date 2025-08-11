@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json()); // parse JSON request bodies
 
 // ===== MongoDB Connection =====
-mongoose.connect("mongodb+srv://urlshortner:shuv1234@cluster0.jt8bcxt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -64,6 +64,7 @@ app.get("/:short_code", async (req, res) => {
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
 
 
 
